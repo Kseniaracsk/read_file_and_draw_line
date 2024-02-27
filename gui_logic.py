@@ -1,5 +1,6 @@
 import matplotlib
 from PyQt5 import QtWidgets
+from PyQt5.QtWidgets import QFileDialog
 
 from gui import Ui_Dialog
 from drawing.drawer import Drawer as drawer
@@ -29,12 +30,24 @@ class GuiProgram(Ui_Dialog):
 
     def draw(self):
         """ Рисуем график """
+        # Вызов окна выбора файла
+        file_name, filetype = QFileDialog.getOpenFileName(None,
+                                                          "Выбрать файл",
+                                                          ".",
+                                                          "All Files(*)")
+
         # ЧИТАЮ ФАЙЛ
-        file = open("text.txt","r")
-        text = file.read()
+        file = open(file_name, "r")
+        lines = file.readlines()
         file.close()
 
         # ВЫВОДИМ
-        array1 = list(map(float,text.split()))
-        self.drawer_1.draw_line(array1)
+        array1 = [0]*len(lines)
+        array2 = [0] * len(lines)
+        for i in range(len(lines)):
+            val = lines[i].split()
+            array1[i]=float(val[0])
+            array2[i]=float(val[1])
+
+        self.drawer_1.draw_line2(array1,array2)
 

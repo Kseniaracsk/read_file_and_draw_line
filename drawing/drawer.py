@@ -73,3 +73,17 @@ class Drawer(Graph):
 
         # Отрисовка (вызывается в конце)
         self.draw_graph()
+
+    def draw_line2(self, data1, data2) -> None:
+        """ Отрисовка линии.
+        :param data1: данные y1
+        :param data2: данные y2"""
+        # Очистка, подпись графика и осей (вызывается в начале)
+        self.cleaning_and_chart_graph()
+
+        # Рисуем график
+        self.axis.plot(data1)
+        self.axis.plot(data2)
+
+        # Отрисовка (вызывается в конце)
+        self.draw_graph()
