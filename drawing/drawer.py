@@ -74,16 +74,55 @@ class Drawer(Graph):
         # Отрисовка (вызывается в конце)
         self.draw_graph()
 
-    def draw_line2(self, data1, data2) -> None:
+    def draw_line_xy(self, x, y) -> None:
+        """ Отрисовка линии x.
+        :param data: Данные y."""
+
+        # Очистка, подпись графика и осей (вызывается в начале)
+        self.cleaning_and_chart_graph()
+
+        # Рисуем график
+        self.axis.plot(x, y)
+
+        # Отрисовка (вызывается в конце)
+        self.draw_graph()
+
+    def draw_2_line_xyy(self, x, data1, data2) -> None:
         """ Отрисовка линии.
-        :param data1: данные y1
+        :param data1: данные x
         :param data2: данные y2"""
         # Очистка, подпись графика и осей (вызывается в начале)
         self.cleaning_and_chart_graph()
 
         # Рисуем график
-        self.axis.plot(data1)
-        self.axis.plot(data2)
+        self.axis.plot(x, data1)
+        self.axis.plot(x, data2)
+
+        # Отрисовка (вызывается в конце)
+        self.draw_graph()
+
+    def draw_line_xy_2(self, data1, data2):
+        """ Отрисовка линии.
+               :param data1: данные x.
+               :param data2: данные y."""
+        # Очистка, подпись графика и осей (вызывается в начале)
+        self.cleaning_and_chart_graph()
+
+        # Рисуем график
+        self.axis.plot(data1, data2)
+
+        # Отрисовка (вызывается в конце)
+        self.draw_graph()
+
+    def draw_xy_and_line(self, x, y, y_line):
+        # Очистка, подпись графика и осей (вызывается в начале)
+        self.cleaning_and_chart_graph()
+
+        # Рисуем график
+        self.axis.plot(x, y)
+        x_line_array = [x[0],x[-1]]
+        y_line_array = [y_line, y_line]
+        self.axis.plot(x_line_array, y_line_array)
 
         # Отрисовка (вызывается в конце)
         self.draw_graph()

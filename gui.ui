@@ -6,24 +6,88 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>580</width>
-    <height>437</height>
+    <width>545</width>
+    <height>436</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
+  <layout class="QVBoxLayout" name="layout_dialog">
    <item>
     <widget class="QWidget" name="widget_plot_1" native="true">
      <layout class="QVBoxLayout" name="layout_plot_1"/>
     </widget>
    </item>
    <item>
-    <widget class="QPushButton" name="btn_download">
+    <widget class="QWidget" name="widget_plot_2" native="true">
+     <layout class="QVBoxLayout" name="layout_plot_2"/>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="btn_without_gas">
      <property name="text">
-      <string>Загрузка из файла</string>
+      <string>Загрузка из файла без вещества</string>
      </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="btn_with_gas">
+     <property name="text">
+      <string>Загрузка файла с вещством </string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="btn_difference">
+     <property name="text">
+      <string>Разность</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="widget_threshold" native="true">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <layout class="QHBoxLayout" name="layout_threshold">
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="label_threshold">
+        <property name="text">
+         <string>Порог [%]</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="lineEdit_threshold">
+        <property name="text">
+         <string>40</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_threshold">
+        <property name="text">
+         <string>Расчёт порогового значения</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </item>
   </layout>
